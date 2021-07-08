@@ -1,0 +1,74 @@
+{
+  "patients": [
+    {
+      "name": "holden caulfield",
+      "diagnostico": "adolescencia",
+      "id": 2
+    },
+    {
+      "name": "jack ryan",
+      "diagnostico": "quemaduras",
+      "id": 3
+    },
+    {
+      "name": "bilbo bolson",
+      "diagnostico": "perdido",
+      "id": 4
+    },
+    {
+      "name": "bilbo bolson",
+      "diagnostico": "perdido",
+      "id": 5
+    },
+    {
+      "name": "pepito",
+      "diagnostico": "malito",
+      "id": 6
+    },
+    {
+      "name": "asfdasdf",
+      "diagnostico": "asdfadsf",
+      "id": 7
+    },
+    {
+      "name": "asfdasdf",
+      "diagnostico": "asdfadsf",
+      "id": 8
+    },
+    {
+      "name": "asfdasdf",
+      "diagnostico": "asdfadsf",
+      "id": 9
+    },
+    {
+      "name": "asfdasdf",
+      "diagnostico": "asdfadsf",
+      "id": 10
+    },
+    {
+      "name": "asfdasdf",
+      "diagnostico": "asdfadsf",
+      "id": 11
+    },
+    {
+      "name": "ttttt",
+      "diagnostico": "tttt",
+      "id": 12
+    },
+    {
+      "name": "sdf",
+      "diagnostico": "asdf",
+      "id": 13
+    },
+    {
+      "name": "",
+      "diagnostico": "",
+      "id": 14
+    },
+    {
+      "name": "dfsg",
+      "diagnostico": "dfgsdf",
+      "id": 15
+    }
+  ]
+}
