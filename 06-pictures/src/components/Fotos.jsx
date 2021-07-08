@@ -1,14 +1,16 @@
-import React from 'react'
-import Busqueda from './Busqueda'
-import FotosGrid from './FotosGrid'
+import React, { useState } from "react";
+import Busqueda from "./Busqueda";
+import FotosGrid from "./FotosGrid";
 
 const Fotos = () => {
-    return (
-        <div className="fotos">
-            <Busqueda/>
-            <FotosGrid/>
-        </div>
-    )
-}
+  const [searchQuery, setSearchQuery] = useState("");
 
-export default Fotos
+  return (
+    <div className="fotos">
+      <Busqueda changeSearch={(nuevaquery) => setSearchQuery(nuevaquery)} />
+      <FotosGrid search={searchQuery} />
+    </div>
+  );
+};
+
+export default Fotos;
