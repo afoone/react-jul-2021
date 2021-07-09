@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PatientRow = ({ patient }) => {
+const PatientRow = ({ patient, deleteElement }) => {
   return (
     <tr>
       <td>
@@ -9,11 +9,22 @@ const PatientRow = ({ patient }) => {
       </td>
       <td>{patient.name}</td>
       <td>{patient.diagnostico}</td>
+      <td>
+        <button
+          onClick={() => deleteElement(patient.id)}
+          className="ui button red mini"
+        >
+          Borrar
+        </button>
+        <Link to={`/patients/${patient.id}/edit`}>
+            <button className="ui button green mini">Editar</button>
+        </Link>
+      </td>
     </tr>
   );
 };
 
-const PatientsTable = ({ patients }) => {
+const PatientsTable = ({ patients, deleteElement }) => {
   console.log("patients", patients);
   return (
     <div className="patients-table">
@@ -22,10 +33,11 @@ const PatientsTable = ({ patients }) => {
           <th>ID</th>
           <th>Nombre</th>
           <th>Diagnóstico</th>
+          <th></th>
         </thead>
         <tbody>
           {patients.map((patient) => (
-            <PatientRow patient={patient} />
+            <PatientRow patient={patient} deleteElement={deleteElement} />
           ))}
         </tbody>
       </table>

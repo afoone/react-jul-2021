@@ -17,6 +17,7 @@ const Routes = () => {
       <Route exact path="/patients">
         <PatientListView/>
       </Route>
+      <Route exact path="/patients/:id/edit" component={PatientFormView}/>
       <Route exact path="/patients/:id" component={PatientDetailView}/>
       <Route path="/hola/:nombre" component={Hola}/>
       <Route path="/" component={NotFound}></Route>

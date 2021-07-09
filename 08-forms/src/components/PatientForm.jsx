@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const PatientForm = () => {
+const PatientForm = ({ patient }) => {
   const history = useHistory();
 
   // const onSubmit = () => {
@@ -23,15 +23,33 @@ const PatientForm = () => {
 
   const onSubmit = async () => {
     if (!validate()) return;
-    await axios.post("http://localhost:4000/patients", {
-      name,
-      diagnostico,
-    });
+    if (patient) {
+      // estoy en modo edición, tengo que hacer un put
+      await axios.put(`http://localhost:4000/patients/${patient.id}`, {
+        name,
+        diagnostico,
+      });
+    } else {
+      // es nuevo por lo que tengo que hacer un post
+      await axios.post("http://localhost:4000/patients", {
+        name,
+        diagnostico,
+      });
+    }
+
     history.push("/patients");
   };
 
   const [name, setName] = useState("");
   const [diagnostico, setDiagnostico] = useState("");
+
+  // cuando cargue tengo que "popular" los inputs
+  useEffect(() => {
+    if (patient) {
+      setName(patient.name);
+      setDiagnostico(patient.diagnostico);
+    }
+  }, [patient]);
 
   const validate = () => {
     return name && diagnostico;
