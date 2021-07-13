@@ -3,13 +3,11 @@ import PatientsTable from "../components/PatientsTable";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const PatientListView = () => {
+const PatientListView = ({ getPatients }) => {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/patients")
-      .then((res) => setPatients(res.data));
+    getPatients().then((res) => setPatients(res.data));
   }, []);
 
   const deletePatient = async (id) => {

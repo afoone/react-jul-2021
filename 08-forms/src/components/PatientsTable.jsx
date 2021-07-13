@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PatientRow = ({ patient, deleteElement }) => {
   return (
-    <tr>
+    <tr role="patient-row">
       <td>
         <Link to={`/patients/${patient.id}`}> {patient.id}</Link>
       </td>
