@@ -1,4 +1,5 @@
 // Un reducer es una función que recoje un estado (estado del store) y una acción y devuelve un nuevo estado
+import {LOGIN, LOGOUT} from './authActions'
 
 export const initialstate = {
   user: undefined,
@@ -6,11 +7,11 @@ export const initialstate = {
 
 const authReducer = (state = initialstate, action = {}) => {
   switch (action.type) {
-    case "login":
+    case LOGIN:
       return {
         user: action.payload,
       };
-    case "logout":
+    case LOGOUT:
       return {
         user: undefined,
       };

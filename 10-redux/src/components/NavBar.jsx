@@ -1,12 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { logout as logoutAction } from "../redux/authActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
-    dispatch({ type: "logout" });
+    dispatch(logoutAction());
   };
+
+  const user = useSelector((state) => state.user);
 
   return (
     <div>
@@ -15,7 +18,11 @@ const NavBar = () => {
         <a className="item">Messages</a>
         <a className="item">Friends</a>
         <div className="right menu">
-          <div className="ui item" onClick={logout}>Logout</div>
+          {user && (
+            <div className="ui item" onClick={logout}>
+              Logout
+            </div>
+          )}
         </div>
       </div>
     </div>

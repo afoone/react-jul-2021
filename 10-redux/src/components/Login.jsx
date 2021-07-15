@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  login as loginAction,
+} from "../redux/authActions";
 
 const Login = () => {
   // recupera la información del estado
@@ -11,13 +14,7 @@ const Login = () => {
   const login = () => {
     // disparar una acción de login
 
-    dispatch({
-      type: "login",
-      payload: {
-        username,
-        name,
-      },
-    });
+    dispatch(loginAction(username, name));
   };
 
   return (

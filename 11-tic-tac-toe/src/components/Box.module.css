@@ -1,0 +1,10 @@
+.box {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.player {
+    font-size: 10rem;
+    margin-top: 3vh;
+    margin-left: 3vh;
+}
