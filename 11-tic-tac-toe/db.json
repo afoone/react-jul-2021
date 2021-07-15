@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "username": "juan",
+      "partidas": 0,
+      "id": 1
+    },
+    {
+      "username": "paloma",
+      "partidas": 0,
+      "id": 2
+    },
+    {
+      "username": "paloma",
+      "partidas": 0,
+      "id": 3
+    }
+  ]
+}

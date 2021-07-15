@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_PARTIDA } from "./usersAction";
+import { ADD_USER, ADD_PARTIDA, GET_USERS } from "./usersAction";
 
 const initialState = [];
 const userReducer = (state = initialState, action = {}) => {
@@ -15,6 +15,8 @@ const userReducer = (state = initialState, action = {}) => {
           partidas: user.partidas + 1,
         },
       ];
+    case GET_USERS:
+      return action.payload;
     default:
       return state;
   }
