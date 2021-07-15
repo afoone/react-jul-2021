@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createBoard, winner } from "./boardPresenter";
 import Box from "./Box";
 import styles from "./Board.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addPartida } from "../redux/usersAction";
 
 let playerOne = true;
 
@@ -9,12 +11,14 @@ const Board = () => {
   console.log(createBoard());
   const [boxes, setBoxes] = useState(createBoard());
   const [winnerPlayer, setWinnerPlayer] = useState();
+  const dispatch = useDispatch();
+  const players = useSelector((state) => state.players);
 
   const nuevaPartida = () => {
-      console.log("nueva partida")
-      setBoxes(createBoard())
-      setWinnerPlayer(null)
-  }
+    console.log("nueva partida");
+    setBoxes(createBoard());
+    setWinnerPlayer(null);
+  };
 
   // tiene que ocurrir cuando un jugador rellena una casilla
   const fulfillBox = (id) => {
@@ -25,6 +29,8 @@ const Board = () => {
     const ganador = winner(newState, id);
     if (ganador) {
       setWinnerPlayer(ganador);
+      const usernameGanador = players[ganador];
+      dispatch(addPartida(usernameGanador));
     }
     setBoxes(newState);
     playerOne = !playerOne;
@@ -33,9 +39,11 @@ const Board = () => {
   return (
     <div>
       {winnerPlayer && (
-    <div style={{marginBottom:"4rem"}}>
+        <div style={{ marginBottom: "4rem" }}>
           <h1>El ganador es {winnerPlayer}</h1>
-          <button className="ui button" onClick={nuevaPartida} >Nueva partida</button>
+          <button className="ui button" onClick={nuevaPartida}>
+            Nueva partida
+          </button>
         </div>
       )}
 
